@@ -1,0 +1,8 @@
+{
+  "name": "Kroma Studio - Professional Logo Designer",
+  "description": "Full-stack personal branding, portfolio showcase, and client project management portal for a professional logo and brand identity designer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

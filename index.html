@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function() {
+        try {
+          var origFetch = typeof window !== 'undefined' && window.fetch ? window.fetch.bind(window) : null;
+          var customFetch = origFetch;
+          var desc = {
+            get: function() { return customFetch || origFetch; },
+            set: function(val) { customFetch = val; },
+            configurable: true,
+            enumerable: true
+          };
+          try {
+            Object.defineProperty(window, 'fetch', desc);
+          } catch (_) {
+            try {
+              var proto = Object.getPrototypeOf(window) || (typeof Window !== 'undefined' && Window.prototype);
+              if (proto) {
+                Object.defineProperty(proto, 'fetch', desc);
+              }
+            } catch (__) {}
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kroma Studio - Professional Logo Designer</title>
+    <meta name="description" content="Full-stack personal branding, portfolio showcase, and client project management portal for a professional logo and brand identity designer." />
+    <meta property="og:title" content="Kroma Studio - Professional Logo Designer" />
+    <meta property="og:description" content="Full-stack personal branding, portfolio showcase, and client project management portal for a professional logo and brand identity designer." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
